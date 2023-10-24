@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercíco 3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="box">
+        <div class="header">
+            <img src="imagens/transporte.png" alt="">
+            <h1>Calculadora de transporte</h1>
+        </div>
+
+        <div class="main">
+            <div class="form">
+                <label for="funcionarios">Informe a quantidade de funcionários:</label>
+                <input type="number" name="n1" id="funcionarios">
+                <br>
+                <label for="dias">Informe a quantidade de dias:</label>
+                <input type="number" name="n1" id="dias">
+                <br>
+
+                <button onclick="calcular()">Calcular</button>
+                <a href="index.html"><button>Voltar</button></a>
+                <br>
+            </div>
+            <div class="resultado">
+                <label for="res">Resultado:</label>
+                <p id="res"> </p>
+            </div>
+        </div>
+        <p id="data"></p>
+    </div>
+    <script src="codigo.js"></script>
+    <script src="data.js"> </script>
+    <script>
+        var funcionarios = document.getElementById("funcionarios")
+var dias = document.getElementById("dias")
+var res = document.getElementById("res")
+var res = document.getElementById("res")
+function calcular(){
+    if (dias.value<=0 || funcionarios.value<=0){
+        alert(`O número de pessoas e de dias deve ser maior que 0`)
+    }else if (funcionarios.value <= 49 && funcionarios.value >= 1) {
+        var transporte = Number(funcionarios.value) * Number(dias.value) * 4.5
+        res.innerHTML = `<p>O valor do transporte para ${funcionarios.value} pessoa(s) por ${dias.value} dia(s) será de: R$  ${transporte.toFixed(2)}</p>`
+    } else if (funcionarios.value <= 99 && funcionarios.value >= 50) {
+        var transporte = Number(funcionarios.value) * Number(dias.value) * 4.1
+        res.innerHTML = `<p>O valor do transporte para ${funcionarios.value} pessoa(s) por ${dias.value} dia(s) será de: R$  ${transporte.toFixed(2)}</p>`
+    } else if (funcionarios.value <= 149 && funcionarios.value >= 100) {
+        var transporte = Number(funcionarios.value) * Number(dias.value) * 3.8
+        res.innerHTML = `<p>O valor do transporte para ${funcionarios.value} pessoa(s) por ${dias.value} dia(s) será de: R$  ${transporte.toFixed(2)}</p>`
+    } else {
+        var transporte = Number(funcionarios.value) * Number(dias.value) * 3.6
+        res.innerHTML = `<p>O valor do transporte para ${funcionarios.value} pessoa(s) por ${dias.value} dia(s) será de: R$  ${transporte.toFixed(2)}</p>`
+    }
+}
+    </script>
+</body>
+
+</html>
